@@ -17,5 +17,5 @@ def my_method
 end
 ```
 ```javascript
-alert('Hy')
+alert('Hy');
 ```
