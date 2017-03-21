@@ -3,6 +3,9 @@ class Blog < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
+  validates_presence_of :title, :body
+
+  belongs_to :topic
   def slug_candidates
     [
       :title,
