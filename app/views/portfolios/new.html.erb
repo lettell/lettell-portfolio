@@ -1,4 +1,4 @@
-<%= form_for(@Portfolio_item) do |f| %>
+<%= form_for(@portfolio_item) do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -14,4 +14,12 @@
   <div class="action">
     <%= f.submit %>
   </div>
+  <ul>
+    <%= f.fields_for :technologies do |tech_f| %>
+    <li>
+      <%= tech_f.label :name %>
+      <%= tech_f.text_field :name %>
+    </li>
+    <% end %>
+  </ul>
 <% end %>
