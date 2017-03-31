@@ -24,7 +24,9 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    3.times { @portfolio_item.technologies.build }
+  end
 
   def update
     respond_to do |format|
