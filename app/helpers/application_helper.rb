@@ -11,8 +11,12 @@ module ApplicationHelper
 
   def source_helper(layout_name)
     if session[:source]
-     greeting = "Thanks for visiting me from #{session[:source]} and you are on #{layout_name} layout."
-     content_tag(:p, greeting, class: "source-greeting")
+      greeting = "Thanks for visiting me from #{session[:source]} and you are on #{layout_name} layout."
+      content_tag(:p, greeting, class: "source-greeting")
     end
+  end
+
+  def copyright_generator
+    LettellViewTool::Renderer.copyright 'Paulius Jarošius', 'All rights reserved'
   end
 end
