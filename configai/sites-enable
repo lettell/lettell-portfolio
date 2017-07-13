@@ -1,0 +1,38 @@
+upstream puma {
+  server unix:///home/jarosius/apps/ApGalerija/shared/tmp/sockets/ApGalerija-puma.sock;
+}
+server {
+  listen 80 default_server;
+  listen [2a02:7b40:6deb:43b8::1]:80 default_server ipv6only=on;
+  return 301 https://$host$request_uri;
+ }
+server {
+  listen 443 ssl http2 default_server;
+  listen [2a02:7b40:6deb:43b8::1]:443 ssl http2 default_server ipv6only=on;
+  server_name apgalerija.lt www.apgalerija.lt;
+  include snippets/ssl-iapp.lt.conf;
+
+  root /home/jarosius/apps/ApGalerija/current/public;
+  access_log /home/jarosius/apps/ApGalerija/current/log/nginx.access.log;
+  error_log /home/jarosius/apps/ApGalerija/current/log/nginx.error.log info;
+
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  try_files $uri/index.html $uri @puma;
+  location @puma {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    proxy_pass http://puma;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 10M;
+  keepalive_timeout 10;
+}

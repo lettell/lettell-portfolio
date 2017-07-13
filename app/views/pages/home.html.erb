@@ -1,6 +1,8 @@
-<h1>Hi, <%= current_user.first_name %></h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<h1>Blog</h1>
-<%= @posts.inspect %>
-<h1>Skills</h1>
-<%= @skills.inspect %>
+<div class="inner cover">
+  <h1 class="cover-heading">Paulius Jarošius "Jaunesnysis programuotojas"</h1>
+  <p class="lead">Web Application development using the latest Web standards. 
+  </p>
+  <p class="lead">
+    <%= link_to "About me", about_me_path, class: 'btn btn-lg btn-secondary' %>
+  </p>
+</div>
