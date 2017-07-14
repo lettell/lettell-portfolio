@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -60,3 +60,4 @@ gem 'petergate', '~> 1.7'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'kaminari', '~> 1.0', '>= 1.0.1'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.9'
