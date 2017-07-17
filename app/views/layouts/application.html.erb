@@ -16,7 +16,7 @@
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
-          <%= video_tag(
+          <%# video_tag(
               'HardDrivePhotojpeg.mp4',
               id: 'background',
               autoplay: true,
@@ -25,6 +25,7 @@
               poster: 'home_bg.jpg'
             )
             %>
+            <div id="background"></div>
 
           <%= render "shared/application_nav" %>
           <%= yield %>
