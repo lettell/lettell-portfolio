@@ -18,3 +18,5 @@
 # I don't want share
 /config/database.yml
 /config/secrets.yml
+
+.env

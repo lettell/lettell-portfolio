@@ -15,6 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
+  gem 'dotenv-rails', groups: [:development, :test]
   gem 'pry-byebug'
   gem 'byebug', platform: :mri
 end
@@ -39,3 +40,4 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick', '~> 4.6'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'gritter', '~> 1.2'
+gem 'twitter', '~> 6.1'
