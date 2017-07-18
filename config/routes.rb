@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
+  resources :topics, only: [:index, :show]
   resources :comments
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_up: 'register', sign_out: 'logout'}
-  resources :portfolios, expect: [:show]  do
+  resources :portfolios, expect: [:show] do
     put :sort, on: :collection
   end
 

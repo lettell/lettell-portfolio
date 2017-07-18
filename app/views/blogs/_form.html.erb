@@ -14,7 +14,7 @@
     <%= f.collection_select(:topic_id, Topic.all, :id, :title,
                              {
                                include_blank: true,
-                               selected: blog.topic_id
+                               selected: blog.topic.id
                              },
                                class: 'form-control'
                            )
