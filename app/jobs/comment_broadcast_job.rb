@@ -1,8 +1,8 @@
-class CommentBrodcastJob < ApplicationJob
+class CommentBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(comment)
-    ActionCable.server.broadcast "blog_#{comment.blog.id}_chanel", comment: render_comment(comment)
+    ActionCable.server.broadcast "blogs_#{comment.blog.id}_channel", comment: render_comment(comment)
   end
 
   private
